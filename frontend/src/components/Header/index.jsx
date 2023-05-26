@@ -31,22 +31,26 @@ const Header = () => {
                 Pedidos
               </button>
             </div>
-            <button
-              key={2}
-              className={active === "2" ? "active" : undefined}
-              id={"2"}
-              onClick={handleClick}
-            >
-              Cozinha
-            </button>
-            <button
-              key={3}
-              className={active === "3" ? "active" : undefined}
-              id={"3"}
-              onClick={handleClick}
-            >
-              Retirada
-            </button>
+            <div className="btn-pedidos">
+              <button
+                key={2}
+                className={active === "2" ? "active" : undefined}
+                id={"2"}
+                onClick={handleClick}
+              >
+                Cozinha
+              </button>
+            </div>
+            <div className="btn-pedidos">
+              <button
+                key={3}
+                className={active === "3" ? "active" : undefined}
+                id={"3"}
+                onClick={handleClick}
+              >
+                Retirada
+              </button>
+            </div>
           </Fragment>
         </div>
       </div>
