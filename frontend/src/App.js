@@ -1,12 +1,15 @@
-import React from 'react';
-import Header from "./components/Header";
-import Order from './pages/Order';
+import React from "react";
+import { BrowserRouter } from 'react-router-dom';
+import Routes from "./routes/index.js";
+import Header from "./components/Header/index.jsx";
 
 export default function App() {
   return (
-    <div className="App">
-      <Header />
-      <Order />
-    </div>
+    <>
+    <BrowserRouter>
+      <Header/>
+      <Routes/>
+      </BrowserRouter>
+    </>
   );
 }
