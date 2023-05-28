@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,500;1,600&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Prompt:ital,wght@0,500;1,600&display=swap");
 * {
   padding: 0;
   margin: 0;
@@ -18,8 +18,19 @@
     margin-left: 4.5%;
     font-size: 22px;
     letter-spacing: 1px;
-    // font-weight: 600;
-    font-family: 'Prompt', sans-serif;
+    font-family: "Prompt", sans-serif;
+    a:hover {
+      color: #ffffff;
+    }
+    a:visited {
+      color: #ffffff;
+    }
+    a:active {
+      color: #ffffff;
+    }
+    a {
+      text-decoration: none;
+    }
   }
 
   .icon {
@@ -43,30 +54,24 @@
     margin-right: 3%;
 
     button {
-    color: #ffffff;
-    text-align: center;
-    padding: 0.1rem;
-    margin-top: 1px;
-    margin-left: 16px;
-    font-family: 'Prompt', sans-serif;
-    font-size: 13px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    cursor: pointer;
-    transition: filter 0.3s ease-in-out;
-    width: 89px;
-    height: 32px;
-    background-color: #125c13;
-    border-radius: 10px;
+      color: #ffffff;
+      text-align: center;
+      padding: 0.1rem;
+      margin-top: 1px;
+      margin-left: 16px;
+      font-family: "Prompt", sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: filter 0.3s ease-in-out;
+      width: 89px;
+      height: 32px;
+      background-color: #125c13;
+      border-radius: 10px;
     }
     .active {
       background-color: #0c400d;
     }
-
-    // .btn-pedidos {
-    //   display: flex;
-    //   margin-right: 14px;
-    // }
   }
-
 }
