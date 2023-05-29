@@ -13,7 +13,7 @@ function ProductsThree({ img, title, description, price, ...props }) {
         </div>
         <div className="title-card">{title}</div>
         <div className="description-card">{description}</div>
-        <div className="price-card">{price}</div>
+        <div className="price-card">R$ {price}</div>
       </div>
     </>
   );

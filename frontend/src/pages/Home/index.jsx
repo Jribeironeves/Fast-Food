@@ -1,6 +1,10 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { Link } from "react-router-dom";
 import Categories from "../../components/Cards/Categories";
 import combos from "../../assets/png/combos.png";
 import acompanhamentos from "../../assets/png/acompanhamentos.png";
@@ -23,6 +27,21 @@ import molho from "../../assets/png/molho.png";
 
 const Home = () => {
   const [modal, setModal] = useState(false);
+
+  const [produtos, setProdutos] = useState([]);
+
+  const getProdutos = async () => {
+    try {
+      const res = await axios.get("http://localhost:8800/produtos");
+      setProdutos(res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
+    } catch (error) {
+      toast.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getProdutos();
+  }, [setProdutos]);
 
   const toggleModal = () => {
     setModal(!modal);
@@ -58,103 +77,53 @@ const Home = () => {
           <h2>Produtos</h2>
           <h3>Selecione um produto para adicionar ao seu pedido</h3>
           <div className="align-products-list">
-            <ProductsOne
-              onClick={toggleModal}
-              img={productsBurg}
-              title="Smash da casa"
-              description="2x hambúrguer 200g"
-              price="R$ 30,50"
-            />
-            <ProductsOne
-              onClick={toggleModal}
-              img={productsBurg}
-              title="Smash da casa"
-              description="2x hambúrguer 200g"
-              price="R$ 30,50"
-            />
-            <ProductsOne
-              onClick={toggleModal}
-              img={productsBurg}
-              title="Smash da casa"
-              description="2x hambúrguer 200g"
-              price="R$ 30,50"
-            />
-            <ProductsOne
-              onClick={toggleModal}
-              img={productsBurg}
-              title="Smash da casa"
-              description="2x hambúrguer 200g"
-              price="R$ 30,50"
-            />
+            {produtos.map((item, i) => (
+              <ProductsOne
+                key={item.id}
+                onClick={toggleModal}
+                img={productsBurg}
+                title={item.title}
+                description={item.description}
+                price={item.price}
+              />
+            ))}
           </div>
         </div>
         <div className="products-list-two">
           <div className="align-products-list">
-            <ProductsTwo
-              onClick={toggleModal}
-              img={productsBurg}
-              title="Smash da casa"
-              description="2x hambúrguer 200g"
-              price="R$ 30,50"
-            />
-            <ProductsTwo
-              onClick={toggleModal}
-              img={productsBurg}
-              title="Smash da casa"
-              description="2x hambúrguer 200g"
-              price="R$ 30,50"
-            />
-            <ProductsTwo
-              onClick={toggleModal}
-              img={productsBurg}
-              title="Smash da casa"
-              description="2x hambúrguer 200g"
-              price="R$ 30,50"
-            />
-            <ProductsTwo
-              onClick={toggleModal}
-              img={productsBurg}
-              title="Smash da casa"
-              description="2x hambúrguer 200g"
-              price="R$ 30,50"
-            />
+            {produtos.map((item, i) => (
+              <ProductsTwo
+                key={item.id}
+                onClick={toggleModal}
+                img={productsBurg}
+                title={item.title}
+                description={item.description}
+                price={item.price}
+              />
+            ))}
           </div>
         </div>
         <div className="products-list-three">
           <div className="align-products-list">
-            <ProductsThree
-              onClick={toggleModal}
-              img={productsBurg}
-              title="Smash da casa"
-              description="2x hambúrguer 200g"
-              price="R$ 30,50"
-            />
-            <ProductsThree
-              onClick={toggleModal}
-              img={productsBurg}
-              title="Smash da casa"
-              description="2x hambúrguer 200g"
-              price="R$ 30,50"
-            />
-            <ProductsThree
-              onClick={toggleModal}
-              img={productsBurg}
-              title="Smash da casa"
-              description="2x hambúrguer 200g"
-              price="R$ 30,50"
-            />
-            <ProductsThree
-              onClick={toggleModal}
-              img={productsBurg}
-              title="Smash da casa"
-              description="2x hambúrguer 200g"
-              price="R$ 30,50"
-            />
+            {produtos.map((item, i) => (
+              <ProductsThree
+                key={item.id}
+                onClick={toggleModal}
+                img={productsBurg}
+                title={item.title}
+                description={item.description}
+                price={item.price}
+              />
+            ))}
           </div>
         </div>
+
         <div className="align-buttons">
-          <Button className="btn-dark">Finalizar</Button>
+          <Link to="/cozinha">
+            <Button className="btn-dark">Finalizar</Button>
+          </Link>
         </div>
+
         <div className="align-buttons">
           <Button className="btn-light">Cancelar</Button>
         </div>
@@ -225,9 +194,14 @@ const Home = () => {
                   <h3>Total do pedido:</h3>
                   <h1>R$ 30,50</h1>
                   <div className="align-buttons-modal">
-                  <Button className="btn-light">Continuar adicionando</Button>
-                  <Button className="btn-dark">Adicionar ao pedido </Button>
-                </div>
+                    <Button className="btn-light" onClick={toggleModal}>
+                      Continuar adicionando
+                    </Button>
+
+                    <Button className="btn-dark" onClick={toggleModal}>
+                      Adicionar ao pedido{" "}
+                    </Button>
+                  </div>
                 </div>
               </div>
               <div className="close-modal">
