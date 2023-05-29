@@ -8,11 +8,11 @@ import Concluded from "../pages/Concluded";
 const Routa = () => {
   return (
     <>
-    <Routes>
-        <Route path="/" element={<Home/>}/>
-        <Route path="/cozinha" element={<Kitchen/>}/>
-        <Route path="/retirada" element={<Concluded/>}/>
-    </Routes>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/cozinha" element={<Kitchen />} />
+        <Route path="/retirada" element={<Concluded />} />
+      </Routes>
     </>
   );
 };

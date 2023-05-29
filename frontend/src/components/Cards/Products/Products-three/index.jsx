@@ -7,9 +7,9 @@ function ProductsThree({ img, title, description, price, ...props }) {
     <>
       <div className="products-three" {...props}>
         <div className="background-card">
-        <div className="img-card">
-          <img src={img} alt="Imagem do produto" />
-        </div>
+          <div className="img-card">
+            <img src={img} alt="Imagem do produto" />
+          </div>
         </div>
         <div className="title-card">{title}</div>
         <div className="description-card">{description}</div>

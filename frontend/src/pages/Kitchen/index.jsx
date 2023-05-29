@@ -10,7 +10,6 @@ import incluir from "../../assets/png/incluir.png";
 import Ready from "../../components/Cards/Ready";
 
 const Kitchen = () => {
-
   const [pedidos, setPedidos] = useState([]);
 
   const getPedidos = async () => {
@@ -26,7 +25,6 @@ const Kitchen = () => {
     getPedidos();
   }, [setPedidos]);
 
-
   const handleDelete = async (id) => {
     await axios
       .delete("http://localhost:8800/" + id)
@@ -37,7 +35,6 @@ const Kitchen = () => {
         toast.success(data);
       })
       .catch(({ data }) => toast.error(data));
-
   };
 
   return (
@@ -48,17 +45,17 @@ const Kitchen = () => {
           <h2>Pronto:</h2>
         </div>
         <div className="align-preparing-itens">
-           {pedidos.map((item, i) => (
-          <Preparing
-            key={item.id}
-            className="preparing"
-            img={burg}
-            title={item.cliente}
-            description={item.name_product}
-            btnExcluir={excluir}
-            btnIncluir={incluir}
-            funExcluir={() => handleDelete(item.id) }
-          />
+          {pedidos.map((item, i) => (
+            <Preparing
+              key={item.id}
+              className="preparing"
+              img={burg}
+              title={item.cliente}
+              description={item.name_product}
+              btnExcluir={excluir}
+              btnIncluir={incluir}
+              funExcluir={() => handleDelete(item.id)}
+            />
           ))}
         </div>
         <div className="align-ready-itens">

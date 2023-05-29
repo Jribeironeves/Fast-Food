@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./styles.scss"
+import "./styles.scss";
 
 export default function Modal() {
   const [modal, setModal] = useState(false);
@@ -8,10 +8,10 @@ export default function Modal() {
     setModal(!modal);
   };
 
-  if(modal) {
-    document.body.classList.add('active-modal')
+  if (modal) {
+    document.body.classList.add("active-modal");
   } else {
-    document.body.classList.remove('active-modal')
+    document.body.classList.remove("active-modal");
   }
 
   return (
@@ -34,7 +34,7 @@ export default function Modal() {
               placeat tempora vitae enim incidunt porro fuga ea.
             </p>
             <button className="close-modal" onClick={toggleModal}>
-                X
+              X
             </button>
           </div>
         </div>
