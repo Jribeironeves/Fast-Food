@@ -8,6 +8,7 @@ function Preparing({
   description,
   className,
   btnExcluir,
+  funExcluir,
   btnIncluir,
   ...props
 }) {
@@ -22,7 +23,7 @@ function Preparing({
           <h4>{description}</h4>
         </div>
         <div className="img-delete">
-          <img src={btnExcluir} alt="button-imagem" />
+          <img src={btnExcluir} alt="button-imagem" onClick={funExcluir}/>
         </div>
         <div className="img-include">
           <img src={btnIncluir} />

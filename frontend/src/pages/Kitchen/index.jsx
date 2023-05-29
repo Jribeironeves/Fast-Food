@@ -1,3 +1,7 @@
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./styles.scss";
 import Preparing from "../../components/Cards/Preparing";
 import burg from "../../assets/png/preparando.png";
@@ -6,6 +10,36 @@ import incluir from "../../assets/png/incluir.png";
 import Ready from "../../components/Cards/Ready";
 
 const Kitchen = () => {
+
+  const [pedidos, setPedidos] = useState([]);
+
+  const getPedidos = async () => {
+    try {
+      const res = await axios.get("http://localhost:8800");
+      setPedidos(res.data.sort((a, b) => (a.nome > b.nome ? 1 : -1)));
+    } catch (error) {
+      toast.error(error);
+    }
+  };
+
+  useEffect(() => {
+    getPedidos();
+  }, [setPedidos]);
+
+
+  const handleDelete = async (id) => {
+    await axios
+      .delete("http://localhost:8800/" + id)
+      .then(({ data }) => {
+        const newArray = pedidos.filter((user) => user.id !== id);
+
+        setPedidos(newArray);
+        toast.success(data);
+      })
+      .catch(({ data }) => toast.error(data));
+
+  };
+
   return (
     <>
       <div className="kitchen">
@@ -14,38 +48,18 @@ const Kitchen = () => {
           <h2>Pronto:</h2>
         </div>
         <div className="align-preparing-itens">
+           {pedidos.map((item, i) => (
           <Preparing
+            key={item.id}
             className="preparing"
             img={burg}
-            title="201 - Ricardo"
-            description="1x Smash da casa"
+            title={item.cliente}
+            description={item.name_product}
             btnExcluir={excluir}
             btnIncluir={incluir}
+            funExcluir={() => handleDelete(item.id) }
           />
-          <Preparing
-            className="preparing"
-            img={burg}
-            title="202 - Luiza"
-            description="1x Smash da casa"
-            btnExcluir={excluir}
-            btnIncluir={incluir}
-          />
-          <Preparing
-            className="preparing"
-            img={burg}
-            title="203 - Fernanda"
-            description="1x Smash da casa"
-            btnExcluir={excluir}
-            btnIncluir={incluir}
-          />
-          <Preparing
-            className="preparing"
-            img={burg}
-            title="204 - Bruna"
-            description="1x Smash da casa"
-            btnExcluir={excluir}
-            btnIncluir={incluir}
-          />
+          ))}
         </div>
         <div className="align-ready-itens">
           <Ready
