@@ -1,0 +1,53 @@
+.ready {
+  width: 400px;
+  height: 84px;
+  border-radius: 20px;
+  margin-right: 3rem;
+  margin-bottom: 1.4rem;
+  background-color: #ffffff;
+  border: #84BD85 2px solid;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+  .img-card {
+    display: flex;
+    justify-content: center;
+    height: 80px;
+    width: 60px;
+    img {
+      margin-left: 4rem;
+      position: relative;
+      top: 3.8%;
+    }
+  }
+
+  .text-description {
+    h3 {
+      margin-top: -3.7rem;
+      margin-left: 7.3rem;
+      font-size: 17px;
+      font-family: "Poppins", sans-serif;
+      font-weight: 900;
+      font-weight: bold;
+      justify-content: center;
+    }
+
+    h4 {
+      margin-left: 7.3rem;
+      font-size: 12px;
+      font-family: "Poppins", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      justify-content: center;
+    }
+  }
+  .img-delete {
+    display: flex;
+    img {
+    cursor: pointer;
+      width: 50px;
+      height: 40px;
+      margin-left: 20.2rem;
+      margin-top: -2.7rem;
+    }
+  }
+}

@@ -1,0 +1,60 @@
+.increment {
+  display: flex;
+  width: 130px;
+  height: 40px;
+  margin-top: 5%;
+  border-radius: 20px;
+  background-color: #ffffff;
+  border: #125c13 solid 2px;
+
+  .decrease {
+    display: flex;
+    margin-left: 3%;
+    button {
+      cursor: pointer;
+      background: #125c13;
+      border-radius: 20px;
+      width: 43px;
+      height: 43px;
+      border: 2px solid #125c13;
+      margin-top: -0.1rem;
+      margin-left: -0.3rem;
+      color: white;
+      font-size: 26px;
+      font-family: "Poppins", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+    }
+  }
+
+  .increase {
+    display: flex;
+    margin-left: 3%;
+    button {
+      cursor: pointer;
+      background: #125c13;
+      border-radius: 20px;
+      width: 48px;
+      height: 43px;
+      border: 2px solid #125c13;
+      margin-top: -2.7rem;
+      margin-left: 5.2rem;
+      color: white;
+      font-size: 26px;
+      font-family: "Poppins", sans-serif;
+      font-style: normal;
+      font-weight: 400;
+    }
+  }
+
+  .card-count {
+    display: flex;
+    margin-left: -54%;
+    margin-top: 0.6rem;
+    color: #125c13;
+    font-size: 15px;
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 500;
+  }
+}

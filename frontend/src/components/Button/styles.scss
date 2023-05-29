@@ -1,0 +1,39 @@
+.button {
+  text-align: center;
+  padding: 0.7rem;
+  margin-top: 7.5%;
+  margin-left: 5px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-dark {
+  display: inline-block;
+  width: 316px;
+  height: 56px;
+  color: #ffffff;
+  font-size: 17px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-weight: bold;
+  background-color: #125c13;
+  border-radius: 20px;
+  margin-left: 80%;
+}
+
+.btn-light {
+  display: inline-block;
+  width: 316px;
+  height: 56px;
+  color: #125c13;
+  font-size: 17px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 900;
+  font-weight: bold;
+  border: #125c13 solid 2px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  margin-left: 46.5%;
+  margin-top: -10%;
+}
